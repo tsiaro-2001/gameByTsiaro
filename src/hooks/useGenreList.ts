@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/api-client"
 
-interface Genre {
+export interface Genre {
     id: number;
-    name: string
+    name: string;
+    image_background: string
 }
 
 interface FetchGenreResponse {
