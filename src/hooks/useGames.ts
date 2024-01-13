@@ -21,16 +21,17 @@ count: number;
 results: Game[]
 }
 
-const useGames = (selectGenre: Genre | null, selectPlatform: Platform  | null) => {
+const useGames = (selectGenre: Genre | null, selectPlatform: Platform  | null, selectOrder: string | null) => {
     const [games, setGames] = useState<Game[]>([])
     const [error, setError] = useState('')
     const [isLoading, setLoading] = useState(false)
 
-    const deps = [selectGenre?.id, selectPlatform?.id];
+    const deps = [selectGenre?.id, selectPlatform?.id, selectOrder];
     const requestConfig = {
       params: { 
         genres: selectGenre?.id,
-        platforms: selectPlatform?.id
+        platforms: selectPlatform?.id,
+        ordering: selectOrder
       }
     }
     
