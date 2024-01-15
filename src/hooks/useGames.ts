@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import apiClient from "../services/api-client"
 import { Genre } from "./useGenreList";
 import { CanceledError } from "axios";
+import { GameQuery } from "../App";
 
 export interface Platform {
   id: number;
@@ -21,17 +22,17 @@ count: number;
 results: Game[]
 }
 
-const useGames = (selectGenre: Genre | null, selectPlatform: Platform  | null, selectOrder: string | null) => {
+const useGames = (gameQuery: GameQuery) => {
     const [games, setGames] = useState<Game[]>([])
     const [error, setError] = useState('')
     const [isLoading, setLoading] = useState(false)
 
-    const deps = [selectGenre?.id, selectPlatform?.id, selectOrder];
+    const deps = [gameQuery];
     const requestConfig = {
       params: { 
-        genres: selectGenre?.id,
-        platforms: selectPlatform?.id,
-        ordering: selectOrder
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        search: gameQuery.search
       }
     }
     
