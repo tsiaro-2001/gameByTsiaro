@@ -3,6 +3,7 @@ import {FaWindows, FaXbox, FaApple, FaPlaystation, FaLinux, FaAndroid} from 'rea
 import { MdPhoneIphone} from 'react-icons/md'
 import {SiNintendo} from 'react-icons/si'
 import {BsGlobe} from 'react-icons/bs'
+import { IconType } from 'react-icons/lib'
 import { HStack, Icon } from '@chakra-ui/react'
 
 interface Props {

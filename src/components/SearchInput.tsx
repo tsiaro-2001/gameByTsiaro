@@ -14,7 +14,9 @@ function SearchInput({onSearch}: Props) {
         onSearch(valInput)
     }
     const handleChange = (event: React.FormEvent) => {
-        setValInput(event.target.value)
+        // setValInput(event.target.value)
+        const vale = (event.target as HTMLInputElement).value 
+        setValInput(vale)
         console.log(valInput);     
     }
   return (
